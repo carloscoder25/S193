@@ -1,20 +1,12 @@
-< 2php
-namespace App\View\Components;
-use Closure;
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
-4 references | D implementations
-class card extends Component
-1 reference public fencabezado;
-1 reference public stitulo;
-1 reference public StextoBoton;
-0 references | 0 overrides public function
-construct(Sencabezado, Stitulo, StextoBoton)
-§this-›encabezado=$encabezado;
-Sthis-›titulo-Stitulo;
-sthis-›textoroton=$textoBoton;
-Get the view / contents that represent the component.
-0 references | 0 overrides public function render (): view|closure|string
-return view view:
-"components. card*);
-Chat
+<div class="container mt-4">
+
+<div class="card">
+  <div class="card-header">{{ $encabezado }}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ $titulo }}</h5>
+    <p class="card-text"> {{ $slot }} </p> 
+    <a href="#" class="btn btn-primary">{{ $textoBoton }}</a>
+  </div>
+    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
+</div>
+</div>
