@@ -14,22 +14,23 @@
 
             <div class="card-body text-justify">
 
-                <form class="mb-3">
+                <form class="mb-3" action="/enviarCliente" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre: </label>
-                        <input type="text" class="form-control" id="nombre">
+                        <input type="text" class="form-control" name="txtNombre" id="nombre">
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos: </label>
-                        <input type="text" class="form-control" id="apellidos">
+                        <input type="text" class="form-control" name="txtApellido" id="apellidos">
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo: </label>
-                        <input type="email" class="form-control" id="correo">
+                        <input type="email" class="form-control" name="txtCorreo" id="correo">
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono: </label>
-                        <input type="number" class="form-control" id="telefono">
+                        <input type="number" class="form-control" name="txtTelefono" id="telefono">
                     </div>
             </div>
 
