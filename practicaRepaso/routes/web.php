@@ -7,5 +7,11 @@ Route::get('/', function () {
 });
 
 Route::get('/Repaso', function () {
-    return view('Repaso');
+    return view('Repaso1');
 });
+
+use App\Http\Controllers\ConvertidorController;
+
+
+Route::post('/convertir', [ConvertidorController::class, 'convertir']);
+

@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 
 class ConvertidorController extends Controller
 {
+    // Método para convertir las unidades
     public function convertir(Request $request)
     {
         // Recibe los valores de la petición
-        $cantidad = $request->input('cantidad');
-        $unidad = $request->input('unidad');
-        $convertirA = $request->input('convertirA');
+        $cantidad = $request->input('cantidad'); // Cantidad a convertir
+        $unidad = $request->input('unidad');     // Unidad de origen (MB, GB, TB)
+        $convertirA = $request->input('convertirA'); // Unidad de destino (GB, MB, TB)
 
         // Inicializar variable para el resultado
         $resultado = 0;
@@ -36,13 +37,10 @@ class ConvertidorController extends Controller
                 }
                 break;
             default:
-                return redirect()->back()->with('error', 'Unidad no válida');
+                return "Unidad no válida";
         }
 
-        // Construir el mensaje del resultado
-        $mensaje = "La cantidad de $cantidad $unidad equivale a $resultado $convertirA.";
-
-        // Retornar la vista con el resultado
-        return view('Repaso', ['resultado' => $mensaje]);
+        // Retorna el resultado en una cadena de texto
+        return "La cantidad de $cantidad $unidad equivale a $resultado $convertirA.";
     }
 }
