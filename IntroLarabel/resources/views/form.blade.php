@@ -3,8 +3,25 @@
 @section('contenido')
 
 {{-- Inicia Tarjeta con formulario --}}
+        {{--@dump($id)--}}
 
     <div class="container mt-5 col-md-6">
+        {{--@if(session('exito'))
+        
+        <x-Alert tipo="success"> {{session('exito')}}</x-Alert>
+        @endif --}}
+        {{--@session('exito')
+        <x-Alert style="background-color: greenyellow;" tipo="warning" > {{ $value }}</x-Alert>
+        @endsession--}}
+        
+        @session('exito')
+        {!<script>
+            Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success"});
+           </script>!}
+        @endsession
 
         <div class="card font-monospace">
 
