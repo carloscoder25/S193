@@ -36,18 +36,22 @@
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre: </label>
                         <input type="text" class="form-control" name="txtNombre" id="nombre">
+                        <small>{{ $errors->first('txtNombre') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos: </label>
                         <input type="text" class="form-control" name="txtApellido" id="apellidos">
+                        <small>{{ $errors->first('txtApellido') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo: </label>
-                        <input type="email" class="form-control" name="txtCorreo" id="correo">
+                        <input type="text" class="form-control" name="txtCorreo" id="correo">
+                        <small>{{ $errors->first('txtCorreo') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono: </label>
-                        <input type="number" class="form-control" name="txtTelefono" id="telefono">
+                        <input type="text" class="form-control" name="txtTelefono" id="telefono">
+                        <small>{{ $errors->first('txtTelefono') }}</small>
                     </div>
             </div>
 

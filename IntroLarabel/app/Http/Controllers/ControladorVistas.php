@@ -33,6 +33,12 @@ class ControladorVistas extends Controller
         //$id= [['usuario'=>1],['usuario'=>2]];
         //return view('form',compact('id'));
 
+        $validacion= $peticion->validate([
+            'txtNombre'=> 'required|min:4|max:200',
+            'txtApellido'=> 'required|min:5|max:20',
+            'txtCorreo'=> 'required|min:5|max:20',
+            'txtTelefono'=> 'required|numeric'
+        ]);
         //redireccion con un mensaje flashb
         $usuario= $peticion->input('txtNombre');
         session()->flash('exito','Se guardo el usuario: '.$usuario);
