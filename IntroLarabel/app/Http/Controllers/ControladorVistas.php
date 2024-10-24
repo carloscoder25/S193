@@ -36,7 +36,7 @@ class ControladorVistas extends Controller
         $validacion= $peticion->validate([
             'txtNombre'=> 'required|min:4|max:200',
             'txtApellido'=> 'required|min:5|max:20',
-            'txtCorreo'=> 'required|min:5|max:20',
+            'txtCorreo'=> 'required|email:dns|min:5|max:20',
             'txtTelefono'=> 'required|numeric'
         ]);
         //redireccion con un mensaje flashb
