@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadorCliente;
 
 class ControladorVistas extends Controller
 {
@@ -18,7 +19,7 @@ class ControladorVistas extends Controller
         return view('clientes');
     }
 
-    public function procesarCliente( Request $peticion){
+    public function procesarCliente( validadorCliente $peticion){
         //Respuestas de redireccion
 
         //redireccion usando ruta
@@ -33,12 +34,7 @@ class ControladorVistas extends Controller
         //$id= [['usuario'=>1],['usuario'=>2]];
         //return view('form',compact('id'));
 
-        $validacion= $peticion->validate([
-            'txtNombre'=> 'required|min:4|max:200',
-            'txtApellido'=> 'required|min:5|max:20',
-            'txtCorreo'=> 'required|email:dns|min:5|max:20',
-            'txtTelefono'=> 'required|numeric'
-        ]);
+      
         //redireccion con un mensaje flashb
         $usuario= $peticion->input('txtNombre');
         session()->flash('exito','Se guardo el usuario: '.$usuario);
