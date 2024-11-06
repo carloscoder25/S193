@@ -11,7 +11,7 @@ class Validador extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class Validador extends FormRequest
             //
             'txtPrenda'=> 'required',
             'txtColor'=> 'required',
-            'txtCantidad'=> 'required|numeric|min:0|max:100'
+            'txtCantidad'=> 'required|numeric|min:1|max:100'
         ];
     }
 }
