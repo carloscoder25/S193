@@ -26,8 +26,7 @@ class clienteController extends Controller
     {
         return view('form');
     }
-
-    /**
+ /**
      * Store a newly created resource in storage.
      */
     public function store(validadorCliente $request)
@@ -66,7 +65,22 @@ class clienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+        // Consultar el cliente específico por ID
+    $cliente = DB::table('clientes')->where('id', $id)->first();
+
+    // Verificar si el cliente existe
+    if (!$cliente) {
+        return redirect()->route('rutaClientes')->with('error', 'Cliente no encontrado.');
+    }
+
+    // Retornar la vista con los datos del cliente
+    return view('forma', compact('cliente'));
+
+
+            // Consultar el cliente específico por ID
+       
+            
     }
 
     /**

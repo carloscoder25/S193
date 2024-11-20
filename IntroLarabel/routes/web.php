@@ -45,3 +45,12 @@ Route::post('/clientes',[clienteController::class, 'store'])->name('rutaEnviar')
 
 
 Route::get('/clientes',[clienteController::class, 'index'])->name('rutaCliente');
+
+
+
+
+Route::get('/clientes/editar/{Sid}',[clienteController::class,'edit'])->name('rutaEdit');
+
+Route::put('/clientes/actualizar/{id}',[clienteController::class,'update'])->name('rutaUpdate');
+
+Route::get('/clientes/eliminar',[clienteController::class,'destroy'])->name('rutaClienteD');

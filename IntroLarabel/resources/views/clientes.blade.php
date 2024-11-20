@@ -18,7 +18,8 @@
             </div>
 
             <div class="card-footer text-muted">
-                <button type="submit" class="btn btn-warning btn-sm"> Actualizar </button>
+                
+                <a href="{{ route('rutaEdit', $cliente->id)}}" class="btn btn-danger">{{__('Editar') }}</a>     
                 <button type="submit" class="btn btn-danger btn-sm"> Eliminar </button>
             </div>
         </div>
