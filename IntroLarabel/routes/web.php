@@ -53,4 +53,4 @@ Route::get('/clientes/editar/{Sid}',[clienteController::class,'edit'])->name('ru
 
 Route::put('/clientes/actualizar/{id}',[clienteController::class,'update'])->name('rutaUpdate');
 
-Route::get('/clientes/eliminar',[clienteController::class,'destroy'])->name('rutaClienteD');
+Route::delete('/clientes/eliminar/{id}',[clienteController::class,'destroy'])->name('rutaEliminar');

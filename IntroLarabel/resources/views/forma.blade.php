@@ -14,13 +14,26 @@
         <x-Alert style="background-color: greenyellow;" tipo="warning" > {{ $value }}</x-Alert>
         @endsession--}}
         
-        @session('exito')
-        {!<script>
-            Swal.fire({
-                title: "Se guardo el usuario !",
-                icon: "success"});
-           </script>!}
-        @endsession
+        @if(session('exito'))
+            <script>
+                Swal.fire({
+                    title: "¡Exito!",
+                    text: "{{{ session('exito') }}}",
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
+            </script>
+        @endif
+        @if(session('error'))
+            <script>
+                Swal.fire({
+                    title: "¡Error!",
+                    text: "{{{ session('error') }}}",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                });
+            </script>
+        @endif
 
         <div class="card font-monospace">
 
@@ -32,24 +45,25 @@
 
                 <form class="mb-3" action="{{route('rutaUpdate', $cliente->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="nombre" class="form-label">{{__('Nombre') }}</label>
-                        <input type="text" class="form-control" name="txtNombre" id="nombre" value="{{old('txtNombre')}}">
+                        <input type="text" class="form-control" name="txtNombre" id="nombre" value="{{ old('txtNombre', $cliente->nombre) }}">
                         <small class="text-danger fst-bold">{{ $errors->first('txtNombre') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">{{__('Apellidos') }}</label>
-                        <input type="text" class="form-control" name="txtApellido" id="apellidos" value="{{old('txtApellido')}}">
+                        <input type="text" class="form-control" name="txtApellido" id="apellidos" value="{{old('txtApellido', $cliente->apellido) }}">
                         <small class="text-danger fst-bold">{{ $errors->first('txtApellido') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">{{__('Correo') }}</label>
-                        <input type="text" class="form-control" name="txtCorreo" id="correo"value="{{old('txtCorreo')}}">
+                        <input type="text" class="form-control" name="txtCorreo" id="correo"value="{{old('txtCorreo', $cliente->correo) }}">
                         <small class="text-danger fst-bold">{{ $errors->first('txtCorreo') }}</small>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">{{__('Teléfono') }}</label>
-                        <input type="text" class="form-control" name="txtTelefono" id="telefono" value="{{old('txtTelefono')}}">
+                        <input type="text" class="form-control" name="txtTelefono" id="telefono" value="{{old('txtTelefono', $cliente->telefono) }}">
                         <small class="text-danger fst-bold">{{ $errors->first('txtTelefono') }}</small>
                     </div>
             </div>

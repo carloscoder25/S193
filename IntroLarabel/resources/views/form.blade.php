@@ -14,13 +14,16 @@
         <x-Alert style="background-color: greenyellow;" tipo="warning" > {{ $value }}</x-Alert>
         @endsession--}}
         
-        @session('exito')
-        {!<script>
+        @if(session('exito'))
+        <script>
             Swal.fire({
-                title: "Se guardo el usuario !",
-                icon: "success"});
-           </script>!}
-        @endsession
+                title: "¡Exito!",
+                text: "{{{ session('exito') }}}",
+                icon: "success",
+                confirmButtonText: "Aceptar",
+            });
+        </script>
+        @endif
 
         <div class="card font-monospace">
 

@@ -77,26 +77,52 @@ class clienteController extends Controller
     // Retornar la vista con los datos del cliente
     return view('forma', compact('cliente'));
 
-
-            // Consultar el cliente específico por ID
-       
-            
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(validadorCliente $request, $id)
     {
-        //
+        
+        $updated = DB::table('clientes')
+            ->where('id', $id)
+            ->update([
+                "nombre"=>$request->input('txtNombre'),
+                "apellido"=>$request->input('txtApellido'),
+                "correo"=>$request->input('txtCorreo'),
+                "telefono"=>$request->input('txtTelefono'),
+                "updated_at"=>Carbon::now(),
+
+        ]);
+
+        if ($updated){
+            session()->flash('exito','Se actualizao el cliente con el id: ' . $id);
+        }else{
+            session()->flash('error','Error al actualizar el cliente');
+        }
+
+
+        return to_route('rutaCliente');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+     
+        $deleted = DB::table('clientes')->where('id', $id)->delete();
+
+
+        if($deleted){
+            session()->flash('exito','Se elimino el cliente con el id: ' . $id);
+        }else{
+            session()->flash('error','Error al eliminar el cliente');
+        }
+        return to_route('rutaCliente');
+
     }
 
 }
