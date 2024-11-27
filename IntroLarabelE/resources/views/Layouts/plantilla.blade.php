@@ -19,10 +19,10 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('rutaform')?'text-warning':'' }}" aria-current="page" href="/form" >{{__('Registro de Clientes') }}</a>
+                        <a class="nav-link {{ request()->routeIs('cliente.create')?'text-warning':'' }}" aria-current="page" href="{{ route('cliente.create') }}" >{{__('Registro de Clientes') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('rutaconsulta')?'text-warning':'' }}" href="/consulta">{{__('Consulta Clientes') }}</a>
+                        <a class="nav-link {{ request()->routeIs('cliente.index')?'text-warning':'' }}" href="{{ route('cliente.index') }}">{{__('Consulta Clientes') }}</a>
                     </li>
 
                 </ul>
