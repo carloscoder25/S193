@@ -19,9 +19,16 @@
                 <p class="card-text fw-lighter"> </p>
             </div>
 
-            <div class="card-footer text-muted">
-                <button type="submit" class="btn btn-warning btn-sm"> Actualizar </button>
-                <button type="submit" class="btn btn-danger btn-sm"> Eliminar </button>
+            <div class="card-footer text-muted d-flex justify-content-between">
+                
+                <a href="{{ route('cliente.edit', $cliente->id)}}" class="btn btn-warning">{{__('Editar') }}</a>
+                
+                <form action="{{route ('cliente.destroy',$cliente->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Estas seguro de eliminar este cliente?')">{{__('Eliminar')}}</button>
+                </form>     
+                
             </div>
         </div>
         {{-- Finaliza tarjetaCliente --}}
